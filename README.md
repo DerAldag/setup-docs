@@ -2,9 +2,9 @@
 
 ## Ziel
 
-Ziel des Setups ist es, eine stabile Linux Arbeitsumgebung für Softwareentwicklung bereitszustellen, während Windwos ausschließlich als GUI-Host verwendet wird.
+Ziel des Setups ist es, eine stabile Linux Arbeitsumgebung für Softwareentwicklung bereitszustellen, während Windows ausschließlich als GUI-Host verwendet wird.
 
-Dadurch können Coding-Tutorials und Enticklungsworkflows einheitlich in einer LInux-Umbegung durchgeführt werden, ohne die gewohnte Windows-Oberfläche, Shortcuts oder Freizeitnutzung aufzugeben
+Dadurch können Coding-Tutorials und Entwicklungsworkflows einheitlich in einer Linux-Umbegung durchgeführt werden, ohne die gewohnte Windows-Oberfläche, Shortcuts oder Freizeitnutzung aufzugeben
 
 Aufgaben der Windows Maschine in diesem Setup
 
@@ -37,7 +37,7 @@ Aufgaben der Ubuntu Server VM:
 
 ### Warum Ubuntu Server
 - Minimaler Ressourcenverbrauch für lagfreies Arbeiten
-- Größerer Lerneffekt durch verzicht auf GUI, Arbeit am Terminal erzwungen
+- Größerer Lerneffekt durch Verzicht auf GUI, Arbeit am Terminal erzwungen
 - Keine GUI Abhängigkeit
 
 ### Warum tmux?
@@ -97,14 +97,12 @@ Git läuft vollständig auf dem Server, nicht auf dem Windows Host.
 
 Gesichert werden:
 - ~/projects
-- ~/.ssh
+- Relevante Benutzerkonfigurationen
 - ~/venv
 - Docker-Konfigurationen
 
 ### Backup-Skript
-Ort:
-/usr/local/bin/backup_vm.sh
-
+~/backup_vm.sh
 
 Eigenschaften:
 - Bash-Skript
@@ -116,33 +114,31 @@ archivierte Snapshots (zeitgestempelt)
 
 ### systemd Service
 Datei:
-/etc/systemd/system/backup-vm.service
+~/backup-vm.service
 type=oneshot
-ExecStart=/usr/local/bin/backup_vm.sh
+ExecStart=~/backup_vm.sh
 Kein Dauerprozess
-sichtbar mit Systemctl status
+sichtbar mit systemctl status
 
 ### Systemd Timer
 Datei:
-/etc/systemd/system/backup-vm.timer
+~/backup-vm.timer
 Funktion:
 - Zeitgesteuerter Start des Services
 - Entkoppelt Zeitlogik vom Skript
 Aktivierung:
-Systemctl Daemon-reload
+systemctl Daemon-reload
 systemctl enable --now backup-vm.timer
 
 ### Kontrollmechanismen
 - systemctl status backup-vm.service
 - systemctl list-timers
 
-Manuelles Testen:
-/usr/local/bin/backup_vm.sh
 
 ### Strategie:
 - Tar-Archive
 - Aufbewahrung: 4 Wochen
-- Ziel: Shared Folder auf Host-System
+- Ziel: Externes Backup Ziel (Hostseitig)
 
 ## Bekannte Probleme & Lösungen
 
