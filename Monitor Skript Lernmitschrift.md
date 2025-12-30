@@ -17,10 +17,10 @@ Zustandsspeicherung ist ebenfalls nicht notwendig, sofern Warnungen korrekt ausg
 Beobachtung unter Last mit Strss-NG --cpu 2 -timeout 120
 1 min. avg zwischen 2,4 und 2,99
 
-loadavg letzte 15 min. auslesen
-aus ~/proc/loadavg
-awk '{print $3}' /proc/loadavg	-Ausgabe(print) an Positionsargument 3
-Terminal = 0.49
+loadavg letzte 15 min. auslesen  
+aus ~/proc/loadavg  
+awk '{print $3}' /proc/loadavg	-Ausgabe(print) an Positionsargument 3  
+Terminal = 0.49  
 
 ### Kernzanzahl
 
@@ -29,14 +29,14 @@ Versucht mit lscpu | grep "CPU(s)" nur die nötige Zeile zu bekommen, schlechte 
 Core_ID sind in ~/sys ... /core_id gespeichert
 Genutzte Funktionen Grep Cut Sort WC Pipe
 
-Grep -h . /sys/devices/system/cpu/cpu*/topology/core_id 	-liefert Dateiname und Core ID -h flagge inkludiert immer Dateinamen. Für ein robustes Skript, welches auf dieser Annahme basiert, essenziell
-| cut -d: -f2 	-trennt am doppelpunkt und gibt das damit eindeuitige feld 2, die core id aus
-| sort -u 	-Sortiert die IDs und entfernt duplikate, sodass jede zeile einem Kern zuzuordnen ist
-| wc -l 	-wordcount zählt die Zeilen  mit -l
+Grep -h . /sys/devices/system/cpu/cpu*/topology/core_id 	-liefert Dateiname und Core ID -h flagge inkludiert immer Dateinamen. Für ein robustes Skript, welches auf dieser Annahme basiert, essenziell  
+| cut -d: -f2 	-trennt am doppelpunkt und gibt das damit eindeuitige feld 2, die core id aus  
+| sort -u 	-Sortiert die IDs und entfernt duplikate, sodass jede zeile einem Kern zuzuordnen ist  
+| wc -l 	-wordcount zählt die Zeilen  mit -l  
 
 Ergebnis: Anzahl der physischen Kerne als Rohdaten
 
 ### Belegung von / als %
 
-df -P / 			-Zeigt Belegung des Wurzelverzeichnisses ohne Umbrüche
+df -P / 			-Zeigt Belegung des Wurzelverzeichnisses ohne Umbrüche  
 | awk 'NR==2 {print $5}' 	-Ausgabe wird an awk weitergegeben, welches in Zeile 2(NR==2) 5. Feld({print$5} ausgibt, awk braucht einfache Anführungszeichen
