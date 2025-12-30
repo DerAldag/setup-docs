@@ -1,4 +1,4 @@
-# Konzept und Use-Case Überlegungen
+# Konzept und Use-Case Überlegungen (WORK IN PROGRESS)
 
 In diesem Dokument wird dokumentiert, wie ich mir Schritt für Schritt ein Bash Skript zum Monitoring von Durchschnittslast und Diskbelegung erarbeite. Ziel ist primär die Vermeidung KI generierter copy-paste Lösungen, um persönliche Skills auszubauen und zu festigen.
 
