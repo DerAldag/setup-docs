@@ -10,7 +10,7 @@ Lastdurchschnitt der 15 minuten, das skript soll nicht bei jeder Kleinigkeit, di
 Detaillierte logs sind für dieses System und Use Case nicht notwendig, da die Lösung bei Überlast klar ist: Mehr Kerne zuweisen oder mit Verzögerungen leben.
 Zustandsspeicherung ist ebenfalls nicht notwendig, sofern Warnungen korrekt ausgelöst werden, da das Problem bis zum nächsten Start gelöst wird.
 
-## Erarbeitungd er Rohdaten
+## Erarbeitung der Rohdaten
 
 ### Last
 
