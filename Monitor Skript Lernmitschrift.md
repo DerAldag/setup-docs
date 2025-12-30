@@ -2,11 +2,11 @@
 
 Automatisches Monitoring von Diskspace & Durchschnittslast, Warnungen bei Überschreitung, einfache Logs
 
-Für Diskspace mountlogik verwenden. Damit ließe sich das Skript theoretisch auch auf einer neuen Maschine einfach einbauen.
-/ = Für die Überwachung relevantes Wurzelverzeichnis
-Unter 80 % = OK, über 80 = Warnung, über 90% = Kritisch -Disk läuft meist monoton, daher keiner wiederholten Warnungen, Zustandswechsel sind Aussagekräftig
-Derzeit 2 cores: 2x1 = 2 kritisch 2x0,7 = 1,4 Warnung
-Lastdurchschnitt der 15 minuten, das skript soll nicht bei jeder Kleinigkeit, die man nichtmal spürt, auslösen, sondern bei lanfristiger Überbeanspruchung
+Für Diskspace mountlogik verwenden. Damit ließe sich das Skript theoretisch auch auf einer neuen Maschine einfach einbauen.  
+/ = Für die Überwachung relevantes Wurzelverzeichnis  
+Unter 80 % = OK, über 80 = Warnung, über 90% = Kritisch -Disk läuft meist monoton, daher keiner wiederholten Warnungen, Zustandswechsel sind Aussagekräftig.  
+Derzeit 2 cores: 2x1 = 2 kritisch 2x0,7 = 1,4 Warnung.  
+Lastdurchschnitt der 15 minuten, das skript soll nicht bei jeder Kleinigkeit, die man nichtmal spürt, auslösen, sondern bei lanfristiger Überbeanspruchung.  
 Detaillierte logs sind für dieses System und Use Case nicht notwendig, da die Lösung bei Überlast klar ist: Mehr Kerne zuweisen oder mit Verzögerungen leben.
 Zustandsspeicherung ist ebenfalls nicht notwendig, sofern Warnungen korrekt ausgelöst werden, da das Problem bis zum nächsten Start gelöst wird.
 
